@@ -1,0 +1,10 @@
+name: PAWGamesHub
+version: 1.0.0
+main: us.pawgames.hub.PAWHub
+author: KENisFIS
+website: http://www.pawgames.us/
+commands:
+  pawtest:
+    usage: /pawtest
+    description: /pawtest (runs debug test)
+    permission: paw.hub.debug
