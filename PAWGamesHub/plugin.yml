@@ -4,7 +4,7 @@ main: us.pawgames.hub.PAWHub
 author: KENisFIS
 website: http://www.pawgames.us/
 commands:
-  pawtest:
-    usage: /pawtest
+  pet:
+    usage: /<command> 
     description: /pawtest (runs debug test)
-    permission: paw.hub.debug
+    permission: paw.hub.
