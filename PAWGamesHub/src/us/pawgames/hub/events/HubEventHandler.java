@@ -35,17 +35,17 @@ public class HubEventHandler {
 							+ player.getDisplayName() + ChatColor.LIGHT_PURPLE
 							+ " to PAWGames";
 		player.sendMessage(joinMessage);
-		setPlayerInventory(player);
+		//setPlayerInventory(player);
 	}
 	
 	@EventHandler
-	public void foo(PlayerItemHeldEvent event) {
+	public void playerItemHeld(PlayerItemHeldEvent event) {
 		Player player = event.getPlayer();
 		Inventory inventory = player.getInventory();
 		String swordName = "PVP Toggle";
 		PAWInventoryUtility.createDisplay(Material.DIAMOND_SWORD, inventory, inventory.firstEmpty(), swordName, null);
 		if(inventory.getItem(event.getNewSlot()).getItemMeta().getDisplayName().equals(swordName)) {
-			player.
+			
 		}
 	}
 	
