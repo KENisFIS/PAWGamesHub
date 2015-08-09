@@ -16,5 +16,6 @@ public class Pet {
 		pet.setTarget(player);
 		String originalName = pet.getName();
 		pet.setCustomName(player.getName() + "'s " +  originalName);
+		pet.setLeashHolder(player);
 	}
 }

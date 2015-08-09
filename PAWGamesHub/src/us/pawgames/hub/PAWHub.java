@@ -3,42 +3,27 @@ package us.pawgames.hub;
 import java.util.ArrayList;
 
 import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.EntityType;
-import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryDragEvent;
-import org.bukkit.event.inventory.InventoryEvent;
-import org.bukkit.event.inventory.InventoryInteractEvent;
-import org.bukkit.event.inventory.InventoryMoveItemEvent;
-import org.bukkit.event.inventory.InventoryPickupItemEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerInventoryEvent;
-import org.bukkit.event.player.PlayerItemHeldEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
-import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import us.pawgames.hub.events.HubEventHandler;
 import us.pawgames.hub.inventory.CustomItem;
 import us.pawgames.hub.perks.Pet;
 
-public class PAWHub extends JavaPlugin implements Listener {
+public class PAWHub extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
 		// TODO Auto-generated method stub
 		super.onEnable();
 
-		getServer().getPluginManager().registerEvents(this, this);
+		getServer().getPluginManager().registerEvents(new HubEventHandler(this), this);
 
 		for (World world : getServer().getWorlds()) {
 			world.setWeatherDuration(0);
