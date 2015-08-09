@@ -5,6 +5,6 @@ author: KENisFIS
 website: http://www.pawgames.us/
 commands:
   pet:
-    usage: /<command> 
+    usage: /<command>     
     description: /pet
     permission: paw.hub.pet
