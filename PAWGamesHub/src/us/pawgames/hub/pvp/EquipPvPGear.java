@@ -2,12 +2,11 @@ package us.pawgames.hub.pvp;
 
 import java.util.ArrayList;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 
 import us.pawgames.hub.inventory.CustomItem;
 
@@ -24,7 +23,7 @@ public class EquipPvPGear {
 	public EquipPvPGear(Player player) {
 		this.player = player;
 	}
-	
+
 	// more readable format
 	public void diamondGear() {
 		CustomItem helmet = new CustomItem(Material.DIAMOND_HELMET);
@@ -60,11 +59,8 @@ public class EquipPvPGear {
 	}
 	
 	public void unequip() {
-		Inventory inventory = player.getInventory();
-		ItemStack empty = new ItemStack(Material.AIR);
-			for(int i = 100; i < 104; i = i + 1) {
-				inventory.setItem(i, empty);
-			}
+		//player.getInventory().setHelmet(null);
+		player.getInventory().setArmorContents(null);
 		player.updateInventory();
 	}
 }

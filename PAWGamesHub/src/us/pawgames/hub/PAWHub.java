@@ -1,5 +1,8 @@
+//Created by KENisFIS & Voxel
+//Do not redistribute this or modify it.
 package us.pawgames.hub;
 
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -21,7 +24,7 @@ public class PAWHub extends JavaPlugin {
 			world.setStorm(false);
 		}
 
-	}
+	} 
 
 	@Override
 	public void onDisable() {
@@ -36,9 +39,14 @@ public class PAWHub extends JavaPlugin {
 			sender.sendMessage("onCommand");
 			if (label.equalsIgnoreCase("pet")) {
 				sender.sendMessage("passed if statement");
-				new Pet(player, EntityType.COW);
+				new Pet(player, EntityType.RABBIT);
+				new Pet(player, EntityType.FALLING_BLOCK);
+				return true;
+			} else {
+				return false;
 			}
+		} else {
+			return false;
 		}
-		return true;
 	}
 }

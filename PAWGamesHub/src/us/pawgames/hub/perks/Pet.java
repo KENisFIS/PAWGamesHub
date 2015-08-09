@@ -14,6 +14,7 @@ public class Pet {
 		
 		Creature pet = (Creature) player.getWorld().spawnEntity(player.getLocation(), type);
 		pet.setTarget(player);
+		pet.teleport(player);
 		String originalName = pet.getName();
 		pet.setCustomName(player.getName() + "'s " +  originalName);
 		pet.setLeashHolder(player);

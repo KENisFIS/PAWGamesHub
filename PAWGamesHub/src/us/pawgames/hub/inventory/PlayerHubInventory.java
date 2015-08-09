@@ -7,10 +7,10 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
-public class PlayerInventory {
+public class PlayerHubInventory {
 	private Player player;
 	
-	public PlayerInventory(Player player) {
+	public PlayerHubInventory(Player player) {
 		this.player = player;
 	}
 	

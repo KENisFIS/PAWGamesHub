@@ -13,12 +13,17 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.Plugin;
 
-import us.pawgames.hub.inventory.PlayerInventory;
+import us.pawgames.hub.PAWHub;
+import us.pawgames.hub.inventory.PlayerHubInventory;
 import us.pawgames.hub.pvp.EquipPvPGear;
 
 public class HubEventHandler implements Listener{
+	public HubEventHandler(PAWHub plugin) { 
+		plugin.getServer().getPluginManager().registerEvents(this, plugin);
+	}
 	private Plugin plugin;
 	
 	public HubEventHandler(Plugin plugin) {
@@ -44,10 +49,10 @@ public class HubEventHandler implements Listener{
 	private void playerItemHeld(PlayerItemHeldEvent event) {
 		Player player = event.getPlayer();
 		EquipPvPGear equipment = new EquipPvPGear(player);
-		Inventory inventory = player.getInventory();
+		PlayerInventory inventory = player.getInventory();
 		if(inventory.getItem(event.getNewSlot()).getType() == Material.DIAMOND_SWORD) {
 			equipment.diamondGear();
-		} else {
+		} else if(inventory.getItemInHand().getType() != Material.DIAMOND_SWORD || inventory.getItemInHand().hasItemMeta()){
 			equipment.unequip();
 		}
 	}
@@ -60,7 +65,7 @@ public class HubEventHandler implements Listener{
 							+ player.getDisplayName() + ChatColor.LIGHT_PURPLE
 							+ " to PAWGames";
 		player.sendMessage(joinMessage);
-		new PlayerInventory(player).setPlayerInventory();
+		new PlayerHubInventory(player).setPlayerInventory();
 	}
 	
 	@EventHandler
