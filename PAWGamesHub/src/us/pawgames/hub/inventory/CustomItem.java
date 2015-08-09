@@ -1,6 +1,7 @@
 package us.pawgames.hub.inventory;
 
 import java.util.ArrayList;
+
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -8,42 +9,29 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class CustomItem extends ItemStack {
 	private ItemStack item;
-	private Material material;
-	private int amount = 1;
-	private short damage = 0;
 	
 	public CustomItem(ItemStack item) {
 		this.item = item;
 	}
 	
 	public CustomItem(Material material) {
-		this.material = material;
-		initialize();
+		this.item =new ItemStack(material, 1);
 	}
 	
 	public CustomItem(Material material, int amount) {
-		this.material = material;
-		this.amount = amount;
-		initialize();
+		this.item = new ItemStack(material, amount);
 	}
 	
 	public CustomItem(Material material, int amount, short damage) {
-		this.material = material;
-		this.amount = amount;
-		this.damage = damage;
-		initialize();
+		this.item = new ItemStack(material, amount, damage);
 	}
-	
-	private void initialize() {
-		this.item = new ItemStack(this.material, this.amount, this.damage);
-	}
- 
 	
 	public ItemStack getItemStack() {
 		if(item != null) {
-			this.item = new ItemStack(Material.PAPER);
 			return this.item;
 		} else {
+			this.item = new ItemStack(Material.PAPER);
+			setDisplayName("TELL DEVS YOU GOT THIS");
 			return this.item;
 		}
 	}

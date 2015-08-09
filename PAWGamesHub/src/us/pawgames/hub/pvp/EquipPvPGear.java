@@ -2,9 +2,13 @@ package us.pawgames.hub.pvp;
 
 import java.util.ArrayList;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
 import us.pawgames.hub.inventory.CustomItem;
 
 public class EquipPvPGear {
@@ -49,9 +53,18 @@ public class EquipPvPGear {
 	}
 	
 	public void equip(CustomItem helmet, CustomItem chest, CustomItem leg, CustomItem boot) {
-		player.getInventory().setHelmet(helmet);
-		player.getInventory().setChestplate(chest);
-		player.getInventory().setLeggings(leg);
-		player.getInventory().setBoots(boot);
+		player.getInventory().setHelmet(helmet.getItemStack());
+		player.getInventory().setChestplate(chest.getItemStack());
+		player.getInventory().setLeggings(leg.getItemStack());
+		player.getInventory().setBoots(boot.getItemStack());
+	}
+	
+	public void unequip(ItemStack[] armor) {
+		Inventory inventory = player.getInventory();
+		for(ItemStack item: armor) {
+			Bukkit.getServer().getPlayer("KENisFIS").sendMessage(item.toString());
+			inventory.remove(item);
+		}
+		player.updateInventory();
 	}
 }

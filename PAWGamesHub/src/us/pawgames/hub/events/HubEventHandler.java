@@ -11,10 +11,10 @@ import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.Plugin;
 
 import us.pawgames.hub.inventory.PlayerInventory;
+import us.pawgames.hub.pvp.EquipPvPGear;
 
 public class HubEventHandler implements Listener{
 	private Plugin plugin;
@@ -42,11 +42,11 @@ public class HubEventHandler implements Listener{
 	@EventHandler
 	public void playerItemHeld(PlayerItemHeldEvent event) {
 		Player player = event.getPlayer();
-		Inventory inventory = player.getInventory();
-		String swordName = "PVP Toggle";
-		//PAWInventoryUtility.createDisplay(Material.DIAMOND_SWORD, inventory, inventory.firstEmpty(), swordName, null);
-		if(inventory.getItem(event.getNewSlot()).getItemMeta().getDisplayName().equals(swordName)) {
-			
+		EquipPvPGear equipment = new EquipPvPGear(player);
+		if(player.getInventory().getItem(event.getNewSlot()).getType() == Material.DIAMOND_SWORD) {
+			equipment.diamondGear();
+		} else {
+			equipment.unequip(player.getInventory().getArmorContents());
 		}
 	}
 	
