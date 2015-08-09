@@ -7,4 +7,4 @@ commands:
   pet:
     usage: /<command> 
     description: /pawtest (runs debug test)
-    permission: paw.hub.
+    permission: paw.hub.pet
