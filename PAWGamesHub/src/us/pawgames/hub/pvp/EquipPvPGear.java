@@ -59,12 +59,12 @@ public class EquipPvPGear {
 		player.getInventory().setBoots(boot.getItemStack());
 	}
 	
-	public void unequip(ItemStack[] armor) {
+	public void unequip() {
 		Inventory inventory = player.getInventory();
-		for(ItemStack item: armor) {
-			Bukkit.getServer().getPlayer("KENisFIS").sendMessage(item.toString());
-			inventory.remove(item);
-		}
+		ItemStack empty = new ItemStack(Material.AIR);
+			for(int i = 100; i < 104; i = i + 1) {
+				inventory.setItem(i, empty);
+			}
 		player.updateInventory();
 	}
 }
