@@ -21,7 +21,7 @@ public class PlayerInventory {
 	
 	public void setPlayerInventory() {
 		Inventory playerInventory = player.getInventory();
-		player.getInventory().clear();
+		playerInventory.clear();
 		
 		CustomItem compass = new CustomItem(Material.COMPASS, 1);
 		compass.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + "Select a Game");

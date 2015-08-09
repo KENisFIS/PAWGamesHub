@@ -14,9 +14,6 @@ public class PAWHub extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		// TODO Auto-generated method stub
-		super.onEnable();
-
 		getServer().getPluginManager().registerEvents(new HubEventHandler(this), this);
 
 		for (World world : getServer().getWorlds()) {
@@ -28,8 +25,7 @@ public class PAWHub extends JavaPlugin {
 
 	@Override
 	public void onDisable() {
-		// TODO Auto-generated method stub
-		super.onDisable();
+		
 	}
 
 
