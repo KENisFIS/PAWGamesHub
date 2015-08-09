@@ -14,6 +14,8 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.Plugin;
 
+import us.pawgames.hub.inventory.PlayerInventory;
+
 public class HubEventHandler implements Listener{
 	private Plugin plugin;
 	
@@ -34,7 +36,7 @@ public class HubEventHandler implements Listener{
 							+ player.getDisplayName() + ChatColor.LIGHT_PURPLE
 							+ " to PAWGames";
 		player.sendMessage(joinMessage);
-		//setPlayerInventory(player);
+		new PlayerInventory(player).setPlayerInventory();
 	}
 	
 	@EventHandler
