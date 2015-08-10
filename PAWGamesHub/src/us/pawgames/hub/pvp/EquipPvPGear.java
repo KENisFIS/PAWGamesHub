@@ -27,24 +27,24 @@ public class EquipPvPGear {
 	// more readable format
 	public void diamondGear() {
 		CustomItem helmet = new CustomItem(Material.DIAMOND_HELMET);
-		helmet.setDisplayName("PvP Helmet");
-		helmetLore.add(ChatColor.RED + "" + ChatColor.RED + "Use this for pvp!");//why red and red?
+		helmet.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + "ORK Helmet");
+		helmetLore.add(ChatColor.RED + "" + ChatColor.BOLD + "Use this for pvp!");//why red and red?
 		helmet.setLore(helmetLore);												 //was chest.setLore(helmetLore) so you set it 4 times.
 		
 		CustomItem chest = new CustomItem(Material.DIAMOND_CHESTPLATE);
-		chest.setDisplayName("PvP Chestplate");
-		chestLore.add(ChatColor.RED + "" + ChatColor.RED + "Use this for pvp!");//why red and red?
+		chest.setDisplayName(ChatColor.GREEN + "" + ChatColor.BOLD + "CHESTisFIS");
+		chestLore.add(ChatColor.RED + "" + ChatColor.BOLD + "Use this for pvp!");//why red and red?
 		chest.setLore(chestLore);												//correct use of chest.setLore(chestLore)
 		
 		CustomItem leg = new CustomItem(Material.DIAMOND_LEGGINGS);
-		leg.setDisplayName("PvP Leggings");
-		legLore.add(ChatColor.RED + "" + ChatColor.RED + "Use this for pvp!"); 	//why red and red?
+		leg.setDisplayName(ChatColor.BOLD + "Pants of PAW");
+		legLore.add(ChatColor.RED + "" + ChatColor.BOLD + "Use this for pvp!"); 	//why red and red?
 		leg.setLore(legLore);													//was chest.setLore(legLore)
 		
 		CustomItem boot = new CustomItem(Material.DIAMOND_BOOTS);
-		boot.setDisplayName("PvP Boots");
-		bootLore.add(ChatColor.RED + "" + ChatColor.RED + "Use this for pvp!"); //why red and red?
-		boot.setLore(bootLore);													//was chest.setLore(bootLore)
+		boot.setDisplayName(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD +"Boots of YES");
+		bootLore.add(ChatColor.RED + "" + ChatColor.BOLD + "For those who know to yes!");
+		boot.setLore(bootLore);													
 		
 		//needed a way to equip these on the player
 		//or a return on the items that we created here.

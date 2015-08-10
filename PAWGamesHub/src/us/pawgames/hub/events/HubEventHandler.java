@@ -12,7 +12,6 @@ import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.Plugin;
 
@@ -34,8 +33,11 @@ public class HubEventHandler implements Listener{
 	private void inventoryClick(InventoryClickEvent event) {
 		if(event.getWhoClicked() instanceof Player) {
 			Player player = (Player) event.getWhoClicked();
-			if(event.getClickedInventory() == player.getInventory()) {
-				event.setCancelled(true);
+			if(player.getGameMode() != GameMode.CREATIVE) {
+				if(event.getClickedInventory() == player.getInventory()) {
+				
+					event.setCancelled(true);
+				}
 			}
 		}
 	}
@@ -52,7 +54,7 @@ public class HubEventHandler implements Listener{
 		PlayerInventory inventory = player.getInventory();
 		if(inventory.getItem(event.getNewSlot()).getType() == Material.DIAMOND_SWORD) {
 			equipment.diamondGear();
-		} else if(inventory.getItemInHand().getType() != Material.DIAMOND_SWORD || inventory.getItemInHand().hasItemMeta()){
+		} else if(inventory.getItemInHand().getType() != Material.DIAMOND_SWORD || !inventory.getItemInHand().hasItemMeta()){
 			equipment.unequip();
 		}
 	}

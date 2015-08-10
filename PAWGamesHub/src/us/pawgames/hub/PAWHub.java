@@ -2,7 +2,6 @@
 //Do not redistribute this or modify it.
 package us.pawgames.hub;
 
-import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -36,11 +35,8 @@ public class PAWHub extends JavaPlugin {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if(sender instanceof Player) {
 			Player player = (Player) sender;
-			sender.sendMessage("onCommand");
 			if (label.equalsIgnoreCase("pet")) {
-				sender.sendMessage("passed if statement");
 				new Pet(player, EntityType.RABBIT);
-				new Pet(player, EntityType.FALLING_BLOCK);
 				return true;
 			} else {
 				return false;
