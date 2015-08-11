@@ -14,6 +14,7 @@ public class PetMenu {
 		this.player = player;
 		menu = Bukkit.createInventory(player, 27, ChatColor.BLUE + "Pet Menu");
 		
+		createMenu();
 	}
 	
 	private void createMenu() {
