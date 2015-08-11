@@ -80,9 +80,9 @@ public class Particle implements Listener {
 		@EventHandler
 		public void onJoinEvent(PlayerJoinEvent e) {
 			Player p = (Player) e.getPlayer();
-			if(p.hasPermission("particle.special"));
-			createPart(p);
+			if(p.hasPermission("particle.special")) {
+				createPart(p);
 			
 		}
 }
-
+}
