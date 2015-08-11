@@ -45,9 +45,8 @@ public class Particle implements Listener {
 			this.instance = pawHub;
 		}
 		@EventHandler
-	    	public void createPart(final Player p) {
+	    	public void createPart(final Player player) {
 	                    new BukkitRunnable(){
-	                    	Player player = p.getPlayer();
 	                        double t = Math.PI/4;
 	                        Location loc = player.getLocation();
 	                        Random r = new Random();
