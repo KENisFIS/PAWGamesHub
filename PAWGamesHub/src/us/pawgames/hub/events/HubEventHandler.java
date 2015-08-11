@@ -16,6 +16,7 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.Plugin;
 
 import us.pawgames.hub.PAWHub;
+import us.pawgames.hub.effects.Particle;
 import us.pawgames.hub.inventory.PlayerHubInventory;
 import us.pawgames.hub.pvp.EquipPvPGear;
 
@@ -69,6 +70,8 @@ public class HubEventHandler implements Listener{
 		player.sendMessage(joinMessage);
 		new PlayerHubInventory(player).setPlayerInventory();
 	}
+
+
 	
 	@EventHandler
 	private void playerPickupItem(PlayerPickupItemEvent event) {
@@ -79,4 +82,4 @@ public class HubEventHandler implements Listener{
 	private void weatherChange(WeatherChangeEvent event){
 		event.setCancelled(true);
 	}
-}
+	  }

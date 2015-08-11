@@ -4,6 +4,8 @@ import org.bukkit.entity.Creature;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
+import us.pawgames.hub.PAWHub;
+
 public class Pet {
 	
 	public Pet(Player player, EntityType type) {
@@ -19,4 +21,6 @@ public class Pet {
 		pet.setCustomName(player.getName() + "'s " +  originalName);
 		pet.setLeashHolder(player);
 	}
+	
+	
 }
