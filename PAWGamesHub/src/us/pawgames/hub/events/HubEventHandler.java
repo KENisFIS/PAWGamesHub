@@ -6,23 +6,26 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.Plugin;
 
 import us.pawgames.hub.PAWHub;
 import us.pawgames.hub.effects.Particle;
+import us.pawgames.hub.inventory.PetMenu;
 import us.pawgames.hub.inventory.PlayerHubInventory;
 import us.pawgames.hub.pvp.EquipPvPGear;
 
 public class HubEventHandler implements Listener{
 	public HubEventHandler(PAWHub plugin) { 
-		plugin.getServer().getPluginManager().registerEvents(this, plugin);
 	}
 	private Plugin plugin;
 	
@@ -82,4 +85,4 @@ public class HubEventHandler implements Listener{
 	private void weatherChange(WeatherChangeEvent event){
 		event.setCancelled(true);
 	}
-	  }
+}

@@ -3,16 +3,42 @@ package us.pawgames.hub.inventory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 
 public class PetMenu {
-	private CustomItem hPet() {
-		CustomItem hubPetOne = new CustomItem(Material.RABBIT_HIDE);
-		hubPetOne.setDisplayName(ChatColor.GREEN + "Rabbit Pet");
-		return hubPetOne;
+	private Inventory menu;
+	private Player player;
+	
+	public PetMenu(Player player) {
+		this.player = player;
+		menu = Bukkit.createInventory(player, 27, ChatColor.BLUE + "Pet Menu");
+		
+		createMenu();
 	}
-	public static Inventory hubPets = Bukkit.createInventory(null, 9, ChatColor.BLUE + "Pet Menu");
-	static {
-		hubPets.setItem(1, hubPetOne.);
+	
+	private void createMenu() {
+		menu.setItem(1, rabbit().getItemStack());
+	}
+	
+	private CustomItem filler() {
+		CustomItem filler = new CustomItem(Material.EGG);
+		filler.setDisplayName(ChatColor.RED + "What could it be?");
+		
+		return filler;
+	}
+	
+	private CustomItem rabbit() {
+		if(player.hasPermission("pawgames.hub.pets.rabbit")) {
+			CustomItem rabbit = new CustomItem(Material.RABBIT_HIDE);
+			rabbit.setDisplayName(ChatColor.GREEN + "Bunny Wabbit");
+			
+			return rabbit;
+		} else {
+			return filler();
+		}
 	}
 }

@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class PlayerHubInventory {
 	private Player player;
@@ -26,8 +28,9 @@ public class PlayerHubInventory {
 		
 		playerInventory.setItem(0, navigation().getItemStack());
 		playerInventory.setItem(1, pvpSword().getItemStack());
-		playerInventory.setItem(10, petsMenu().getItemStack());
-		playerInventory.setItem(28, morphMenu().getItemStack());
+		playerInventory.setItem(2, playerPopper().getItemStack());
+		playerInventory.setItem(14, morphMenu().getItemStack());
+		playerInventory.setItem(28, petsMenu().getItemStack());
 	}
 	
 	private CustomItem navigation() {
@@ -72,6 +75,15 @@ public class PlayerHubInventory {
 		morph.setLore(morphLore);
 		
 		return morph;
+	}
+	
+	private CustomItem playerPopper() {
+		CustomItem popper = new CustomItem(Material.BLAZE_ROD);
+		popper.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Player Popper");
+		ArrayList<String> popperLore = new ArrayList<String>();
+		popperLore.add(ChatColor.BLUE + "Pop some players!");
+		popper.setLore(popperLore);
+		return popper;
 	}
 	}
 	
