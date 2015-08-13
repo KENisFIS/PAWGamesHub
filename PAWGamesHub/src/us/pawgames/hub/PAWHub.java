@@ -10,7 +10,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import us.pawgames.hub.events.HubEventHandler;
-import us.pawgames.hub.inventory.PetMenu;
 import us.pawgames.hub.perks.Pet;
 
 public class PAWHub extends JavaPlugin {

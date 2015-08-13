@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 
 public class PetMenu {
-	private Inventory menu;
+	public static Inventory menu;
 	private Player player;
 	
 	public PetMenu(Player player) {

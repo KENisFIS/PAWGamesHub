@@ -28,9 +28,9 @@ public class PlayerHubInventory {
 		
 		playerInventory.setItem(0, navigation().getItemStack());
 		playerInventory.setItem(1, pvpSword().getItemStack());
-		playerInventory.setItem(2, playerPopper().getItemStack());
 		playerInventory.setItem(14, morphMenu().getItemStack());
 		playerInventory.setItem(28, petsMenu().getItemStack());
+		playerInventory.setItem(6, walrusSlapper().getItemStack());
 	}
 	
 	private CustomItem navigation() {
@@ -76,14 +76,17 @@ public class PlayerHubInventory {
 		
 		return morph;
 	}
-	
-	private CustomItem playerPopper() {
-		CustomItem popper = new CustomItem(Material.BLAZE_ROD);
-		popper.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Player Popper");
-		ArrayList<String> popperLore = new ArrayList<String>();
-		popperLore.add(ChatColor.BLUE + "Pop some players!");
-		popper.setLore(popperLore);
-		return popper;
+	private CustomItem walrusSlapper() {
+		Player pl = player.getPlayer();
+		if(pl.hasPermission("hub.walrus")) {
+		CustomItem walrus = new CustomItem(Material.RAW_FISH);
+		walrus.setDisplayName(ChatColor.BLUE + "" + ChatColor.BOLD + "Walrus Slapper");
+		ArrayList<String> walrusLore = new ArrayList<String>();
+		walrusLore.add(ChatColor.BLUE + "Use the power of yes to slap players");
+		walrus.setLore(walrusLore);
+		return walrus;
+		}
+		return null;
 	}
-	}
+}
 	

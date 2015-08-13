@@ -1,5 +1,8 @@
 package us.pawgames.hub.events;
 
+import java.util.ArrayList;
+
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -8,6 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
@@ -15,11 +19,13 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.Plugin;
 
 import us.pawgames.hub.PAWHub;
 import us.pawgames.hub.effects.Particle;
+import us.pawgames.hub.inventory.CustomItem;
 import us.pawgames.hub.inventory.PetMenu;
 import us.pawgames.hub.inventory.PlayerHubInventory;
 import us.pawgames.hub.pvp.EquipPvPGear;
@@ -85,4 +91,15 @@ public class HubEventHandler implements Listener{
 	private void weatherChange(WeatherChangeEvent event){
 		event.setCancelled(true);
 	}
-}
+	@EventHandler
+	private void onRightClick(PlayerInteractEvent e) {
+		Player p = e.getPlayer();
+		Inventory inv = Bukkit.createInventory(p, InventoryType.CHEST);
+		if(e.getAction() == Action.RIGHT_CLICK_AIR) {
+		//	if(p.getItemInHand().getType().equals() && p.getItemInHand().hasItemMeta()) {
+		//		if(p.getItemInHand().getItemMeta().getDisplayName().equals()) {
+			p.openInventory(PetMenu.menu);
+			}
+		}
+	}
+//}
