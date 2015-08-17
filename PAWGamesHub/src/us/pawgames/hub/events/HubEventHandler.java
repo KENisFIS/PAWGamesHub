@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
+import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -34,9 +35,14 @@ public class HubEventHandler implements Listener{
 	public HubEventHandler(PAWHub plugin) { 
 	}
 	private Plugin plugin;
+	private Inventory menu;
 	
 	public HubEventHandler(Plugin plugin) {
 		this.plugin = plugin;
+	}
+	public HubEventHandler(Inventory menu) {
+		this.menu = menu;
+		
 	}
 	
 	@EventHandler
@@ -94,12 +100,9 @@ public class HubEventHandler implements Listener{
 	@EventHandler
 	private void onRightClick(PlayerInteractEvent e) {
 		Player p = e.getPlayer();
-		Inventory inv = Bukkit.createInventory(p, InventoryType.CHEST);
 		if(e.getAction() == Action.RIGHT_CLICK_AIR) {
-		//	if(p.getItemInHand().getType().equals() && p.getItemInHand().hasItemMeta()) {
-		//		if(p.getItemInHand().getItemMeta().getDisplayName().equals()) {
-			p.openInventory(PetMenu.menu);
+			if(p.getItemInHand().getType() == Material.BEACON) {
 			}
 		}
 	}
-//}
+}

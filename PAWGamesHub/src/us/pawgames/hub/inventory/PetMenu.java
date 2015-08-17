@@ -10,10 +10,10 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 
 public class PetMenu {
-	public static Inventory menu;
+	private Inventory menu;
 	private Player player;
 	
-	public PetMenu(Player player) {
+	public void PetMenu(Player player) {
 		this.player = player;
 		menu = Bukkit.createInventory(player, 27, ChatColor.BLUE + "Pet Menu");
 		
@@ -41,4 +41,7 @@ public class PetMenu {
 			return filler();
 		}
 	}
+	public Inventory getInventory() {
+		return this.menu;
+		}
 }
