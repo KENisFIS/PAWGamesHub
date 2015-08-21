@@ -3,8 +3,10 @@ package us.pawgames.hub.perks;
 import org.bukkit.entity.Creature;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 
 import us.pawgames.hub.PAWHub;
+import us.pawgames.hub.inventory.PetMenu;
 
 public class Pet {
 	

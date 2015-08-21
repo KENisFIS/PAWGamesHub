@@ -10,7 +10,7 @@ public class PetMenu {
 	private Inventory menu;
 	private Player player;
 	
-	public void PetMenu(Player player) {
+	public PetMenu(Player player) {
 		this.player = player;
 		menu = Bukkit.createInventory(player, 27, ChatColor.BLUE + "Pet Menu");
 		

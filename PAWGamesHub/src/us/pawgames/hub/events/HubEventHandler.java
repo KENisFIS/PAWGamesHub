@@ -1,8 +1,5 @@
 package us.pawgames.hub.events;
 
-import java.util.Arrays;
-
-import org.apache.logging.log4j.core.config.plugins.PluginManager;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -20,7 +17,6 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.plugin.Plugin;
 
 import net.md_5.bungee.api.ChatColor;
-import net.md_5.bungee.api.event.ServerSwitchEvent;
 import us.pawgames.hub.effects.Particle;
 import us.pawgames.hub.effects.ParticleEffect;
 import us.pawgames.hub.inventory.PetMenu;
@@ -33,7 +29,6 @@ public class HubEventHandler implements Listener{
 	
 	public HubEventHandler(Plugin plugin) {
 		this.plugin = plugin;
-		petMenu = new PetMenu();
 	}
 	
 	@EventHandler
@@ -44,6 +39,10 @@ public class HubEventHandler implements Listener{
 				if(event.getClickedInventory() == player.getInventory()) {
 					event.setCancelled(true);
 				}
+			}
+			String rabbit = ChatColor.GREEN + "Bunny Wabbit";
+			if(event.getCurrentItem().getItemMeta().getDisplayName().equals(rabbit)) {
+				event.setCancelled(true);
 			}
 		}
 	}
@@ -99,12 +98,13 @@ public class HubEventHandler implements Listener{
 		event.setCancelled(true);
 	}
 	@EventHandler
-	private void onRighhtClick(PlayerInteractEvent e) {
+	private void onRightClickEvent(PlayerInteractEvent e) {
+		Player p = e.getPlayer();
+		PetMenu petMenu = new PetMenu(p);
 		if(e.getAction() == Action.RIGHT_CLICK_AIR) {
-			Player p = e.getPlayer();
-			if(p.getItemInHand().getType() == Material.NAME_TAG);
-			p.openInventory(petMenu.getInventory());
-			
+			if(p.getItemInHand().getType() == Material.NAME_TAG) {
+				p.openInventory(petMenu.getInventory());
+			}
 		}
 	}
 }
