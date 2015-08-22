@@ -2,6 +2,7 @@ package us.pawgames.hub.events;
 
 import org.bukkit.GameMode;
 import org.bukkit.Material;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,10 +18,12 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.plugin.Plugin;
 
 import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.Title;
 import us.pawgames.hub.effects.Particle;
 import us.pawgames.hub.effects.ParticleEffect;
 import us.pawgames.hub.inventory.PetMenu;
 import us.pawgames.hub.inventory.PlayerHubInventory;
+import us.pawgames.hub.perks.Pet;
 import us.pawgames.hub.pvp.EquipPvPGear;
 
 public class HubEventHandler implements Listener{
@@ -42,8 +45,12 @@ public class HubEventHandler implements Listener{
 			}
 			String rabbit = ChatColor.GREEN + "Bunny Wabbit";
 			if(event.getCurrentItem().getItemMeta().getDisplayName().equals(rabbit)) {
+				player.sendMessage("Passed if statement");
 				event.setCancelled(true);
+				new Pet(player, EntityType.RABBIT);
+				
 			}
+	//		if(event.getClickedInventory())
 		}
 	}
 	
